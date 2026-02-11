@@ -1,8 +1,8 @@
 package Entity;
 
 enum Direction {
-    UP,
     DOWN,
+    UP,
     LEFT,
     RIGHT
 }

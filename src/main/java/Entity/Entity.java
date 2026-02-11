@@ -1,6 +1,7 @@
 package Entity;
 
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 
 abstract class Entity {
     protected int worldX;
@@ -12,7 +13,7 @@ abstract class Entity {
     protected int cameraX;
     protected int cameraY;
 
-    protected BufferedImage frames[][];
+    protected HashMap<Direction, BufferedImage[]> frames = new HashMap<>();
     protected int frameIndex;
     protected int timeCounter;
 
