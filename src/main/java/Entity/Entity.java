@@ -13,6 +13,9 @@ abstract class Entity {
     protected int cameraX;
     protected int cameraY;
 
+    protected int cameraWorldX;
+    protected int cameraWorldY;
+
     protected HashMap<Direction, BufferedImage[]> frames = new HashMap<>();
     protected int frameIndex;
     protected int timeCounter;

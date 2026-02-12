@@ -9,11 +9,13 @@ import javax.swing.JPanel;
 
 import Entity.Player;
 import KeyHandler.KeyHandler;
+import Tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable {
     private Thread gameThread;
     private KeyHandler keyHandler = new KeyHandler();
     private Player player = new Player(this, keyHandler);
+    private TileManager tileManager = new TileManager(this, player);
 
     private final int FPS = 60;
 
@@ -82,6 +84,7 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(graphics);
 
         Graphics2D g2d = (Graphics2D) graphics;
+        tileManager.draw(g2d);
         player.draw(g2d);
 
         g2d.dispose();

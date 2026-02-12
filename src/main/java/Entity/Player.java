@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import GamePanel.GamePanel;
 import KeyHandler.KeyHandler;
 
-public class Player extends Entity {
+public class Player extends Entity implements PlayerInterface {
     private GamePanel gamePanel;
     private KeyHandler keyHandler;
     private boolean lastKeyPress = false;
@@ -19,10 +19,18 @@ public class Player extends Entity {
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
 
-        this.worldX = 25 * gamePanel.TILESIZE;
-        this.worldY = 25 * gamePanel.TILESIZE;
-        this.screenX = (gamePanel.MAX_SCREEN_WIDTH + gamePanel.TILESIZE) / 2;
-        this.screenY = (gamePanel.MAX_SCREEN_HEIGHT + gamePanel.TILESIZE) / 2;
+        this.worldX = 1 * gamePanel.TILESIZE;
+        this.worldY = 0 * gamePanel.TILESIZE;
+
+        this.screenX = worldX + gamePanel.TILESIZE;
+        this.screenY = worldY + gamePanel.TILESIZE;
+
+        this.cameraX = (gamePanel.MAX_SCREEN_WIDTH) / 2;
+        this.cameraY = (gamePanel.MAX_SCREEN_HEIGHT) / 2;
+
+        this.cameraWorldX = 8 * gamePanel.TILESIZE;
+        this.cameraWorldY = 6 * gamePanel.TILESIZE;
+
         this.velocity = new int[] { 5, 5 };
         this.direction = Direction.DOWN;
 
@@ -100,5 +108,45 @@ public class Player extends Entity {
                 effectScreenX, effectScreenY,
                 gamePanel.TILESIZE, gamePanel.TILESIZE,
                 null);
+    }
+
+    @Override
+    public int getWorldX() {
+        return worldX;
+    }
+
+    @Override
+    public int getWorldY() {
+        return worldY;
+    }
+
+    @Override
+    public int getScreenX() {
+        return screenX;
+    }
+
+    @Override
+    public int getScreenY() {
+        return screenY;
+    }
+
+    @Override
+    public int getCameraX() {
+        return cameraX;
+    }
+
+    @Override
+    public int getCameraY() {
+        return cameraY;
+    }
+
+    @Override
+    public int getCameraWorldX() {
+        return cameraWorldX;
+    }
+
+    @Override
+    public int getCameraWorldY() {
+        return cameraWorldY;
     }
 }
