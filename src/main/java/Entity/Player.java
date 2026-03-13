@@ -65,22 +65,22 @@ public class Player extends Entity implements PlayerInterface {
         velocity[1] += (velocity[1] == 0) ? 0 : (velocity[1] < 0) ? 1 : -1;
 
         if (keyState.get("up") == true) {
-            velocity[1] = -5;
+            velocity[1] = -20;
             direction = Direction.UP;
             isWalking = true;
         }
         if (keyState.get("down") == true) {
-            velocity[1] = 5;
+            velocity[1] = 20;
             direction = Direction.DOWN;
             isWalking = true;
         }
         if (keyState.get("left") == true) {
-            velocity[0] = -5;
+            velocity[0] = -20;
             direction = Direction.LEFT;
             isWalking = true;
         }
         if (keyState.get("right") == true) {
-            velocity[0] = 5;
+            velocity[0] = 20;
             direction = Direction.RIGHT;
             isWalking = true;
         }

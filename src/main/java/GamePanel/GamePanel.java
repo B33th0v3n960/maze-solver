@@ -4,8 +4,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 
 import javax.swing.JPanel;
+import javax.swing.JFrame;
 
 import Entity.Player;
 import KeyHandler.KeyHandler;
@@ -32,8 +34,11 @@ public class GamePanel extends JPanel implements Runnable {
     public final int MAX_WORLD_ROW = 50;
     public final int MAX_WORLD_WIDTH = MAX_WORLD_COLUMN * TILESIZE;
     public final int MAX_WORLD_HEIGHT = MAX_WORLD_ROW * TILESIZE;
+    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private JFrame frame;
 
-    public GamePanel() {
+    public GamePanel(JFrame window) {
+        this.frame = window;
         this.setPreferredSize(new Dimension(MAX_SCREEN_WIDTH, MAX_SCREEN_HEIGHT));
         this.setBackground(new Color(0x2e3440));
 
@@ -76,7 +81,10 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
+        Dimension frameSize = frame.getSize();
         player.update();
+        // System.out.println("Screen width: " + frameSize.width);
+        // System.out.println("Screen height: " + screenSize.height);
     }
 
     @Override

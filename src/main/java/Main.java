@@ -8,11 +8,11 @@ public class Main {
         System.setProperty("sun.java2d.opengl", "true");
 
         JFrame window = new JFrame();
-        window.setResizable(false);
+        // window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("Maze walker");
 
-        GamePanel gamePanel = new GamePanel();
+        GamePanel gamePanel = new GamePanel(window);
         window.add(gamePanel);
 
         window.pack();
@@ -20,6 +20,5 @@ public class Main {
         window.setVisible(true);
 
         gamePanel.startGameThread();
-
     }
 }

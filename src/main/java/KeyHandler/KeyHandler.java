@@ -1,14 +1,13 @@
 package KeyHandler;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 public class KeyHandler implements KeyListener {
-    private HashMap<String, Boolean> keyState = new HashMap<>();
+    private final HashMap<String, Boolean> keyState = new HashMap<>();
 
     public KeyHandler() {
         keyState.put("up", false);
@@ -22,8 +21,8 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        int keycode = e.getKeyCode();
+    public void keyPressed(final KeyEvent e) {
+        final int keycode = e.getKeyCode();
         if (keycode == KeyEvent.VK_W)
             keyState.put("up", true);
         if (keycode == KeyEvent.VK_S)
@@ -38,8 +37,8 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        int keycode = e.getKeyCode();
+    public void keyReleased(final KeyEvent e) {
+        final int keycode = e.getKeyCode();
         if (keycode == KeyEvent.VK_W)
             keyState.put("up", false);
         if (keycode == KeyEvent.VK_S)
@@ -51,7 +50,7 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(final KeyEvent e) {
         // DO NOT USE!!!
     }
 }
